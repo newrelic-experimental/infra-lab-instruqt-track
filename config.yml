@@ -1,0 +1,14 @@
+version: "3"
+virtualmachines:
+- name: service-1
+  image: nr-devadv-labs/infra-v2-instruqt
+  shell: /bin/bash
+  machine_type: n1-standard-1
+- name: service-2
+  image: nr-devadv-labs/infra-v2-instruqt
+  shell: /bin/bash
+  machine_type: n1-standard-1
+- name: service-3
+  image: nr-devadv-labs/infra-v2-instruqt
+  shell: /bin/bash
+  machine_type: n1-standard-1
