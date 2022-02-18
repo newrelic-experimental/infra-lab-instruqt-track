@@ -1,14 +1,23 @@
 version: "3"
 virtualmachines:
-- name: service-1
+- name: host-1
   image: nr-devadv-labs/infra-v2-instruqt
   shell: /bin/bash
+  environment:
+    CLUSTER_NAME: local
+    PUBLIC_URL: http://172.17.0.1:8888
   machine_type: n1-standard-1
-- name: service-2
+- name: host-2
   image: nr-devadv-labs/infra-v2-instruqt
   shell: /bin/bash
+  environment:
+    CLUSTER_NAME: local
+    PUBLIC_URL: http://172.17.0.1:8888
   machine_type: n1-standard-1
-- name: service-3
+- name: host-3
   image: nr-devadv-labs/infra-v2-instruqt
   shell: /bin/bash
-  machine_type: n1-standard-1
+  environment:
+    CLUSTER_NAME: local
+    PUBLIC_URL: http://172.17.0.1:8888
+  machine_type: n1-highcpu-2
