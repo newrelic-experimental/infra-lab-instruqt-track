@@ -23,11 +23,11 @@ timelimit: 1800
 
 With infrastructure monitoring, you can quickly identify issues in your system as well as the entities that are affected by those issues.
 
-> **Note:** Since we're sending mock traffic to the site using loader service, it takes some time for the service to spin up and start sending traffic. Moreover, the Golden Signals' High CPU has a 5 minute time interval before it fires the alert. If you don't see your host alerting just yet, sit back and allow it some time.
+> **Note:** If you don't see data for your hosts quite yet, wait a few more minutes, and refresh your view.
 
 ## Identify depleted resources
 
-Go to [New Relic](https://one.newrelic.com) and select **Hosts** from left-hand menu.
+Go to [New Relic](https://one.newrelic.com) and select **Hosts** from the left-hand menu.
 
 Here, you see a list of your hosts.
 
@@ -35,7 +35,7 @@ Here, you see a list of your hosts.
 
 Notice that **host-1** is marked red, and its CPU usage is high. This indicates that something may be wrong with **host-1**. Take a closer look to see if this high utilization is temporary or a long-lasting issue.
 
-Select **host-1** and click **View selected**.
+Select **host-1**, and click **View selected**.
 
 ![View your hosts](../assets/view-host-1.png)
 

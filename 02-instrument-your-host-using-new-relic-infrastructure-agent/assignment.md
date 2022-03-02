@@ -62,7 +62,7 @@ The installation takes a few minutes to complete. While it does, do the same for
 
 Once you install our infrastructure agent on your hosts, you see them in New Relic.
 
-In [New Relic](https://one.newrelic.com), go to **Hosts** in left-hand menu.
+In [New Relic](https://one.newrelic.com), go to **Hosts** in the left-hand menu.
 
 ![View your hosts](../assets/view-infra.png)
 

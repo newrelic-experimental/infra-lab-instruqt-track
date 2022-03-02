@@ -7,9 +7,7 @@ teaser: Use infrastructure monitoring to discover the root cause of your high CP
   usage
 notes:
 - type: text
-  contents: Immediately after instrumenting your hosts with our infrastructure agent,
-    you saw CPU issue affecting your host. Fortunately, you can use infrastructure
-    monitoring to discover the root cause of the issue and start mitigating it.
+  contents: Immediately after instrumenting your hosts with our infrastructure agent, you saw a CPU issue affecting your host. Fortunately, you can use infrastructure monitoring to discover the root cause of the issue.
 tabs:
 - title: host 1
   type: terminal
@@ -33,11 +31,11 @@ Here, you see information about processes running on your host, including their 
 
 The top process that's using a lot of CPU is a Java process.
 
-Hover over the container on that java process in the **Container** column.
+Hover over the container on that Java process in the **Container** column.
 
 ![Shipping container with High CPU](../assets/shipping-high-cpu.png)
 
-This shows you that the container holding the high CPU process is for your shipping service. The shipping service is a Java application that has logic that consumes a high percentage of CPU. This process's resource consumption is reflected on your host and also on dependent services.
+This shows you that the container holding the high CPU process is for your shipping service. The shipping service is a Java application that has logic that consumes a high percentage of CPU. This process's resource consumption is reflected on your host, and also on dependent services.
 
 Now that you've discovered the root cause of high CPU utilization on your host, you can pass this information to the development team responsible for the shipping service.
 
@@ -55,5 +53,5 @@ Specifically, you:
 
 Now that you know how to instrument your infrastructure with New Relic, here are some resources you can utilize to familiarize yourself even more with infrastructure monitoring.
 
-- [Get started with infrastructure monitoring] (https://docs.newrelic.com/docs/infrastructure/infrastructure-monitoring/get-started/get-started-infrastructure-monitoring/)
+- [Get started with infrastructure monitoring](https://docs.newrelic.com/docs/infrastructure/infrastructure-monitoring/get-started/get-started-infrastructure-monitoring/)
 - [New infrastructure hosts UI](https://docs.newrelic.com/docs/infrastructure/infrastructure-ui-pages/infrastructure-ui-entities)
