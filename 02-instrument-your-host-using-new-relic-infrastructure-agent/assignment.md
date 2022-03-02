@@ -2,15 +2,13 @@
 slug: instrument-your-host-using-new-relic-infrastructure-agent
 id: vvlepjwl6wlw
 type: challenge
-title: Instrument your hosts using New Relic infrastructure agent
-teaser: Install New Relic infrastructure agent on your hosts
+title: Instrument your hosts using our infrastructure agent
+teaser: Install our infrastructure agent on your hosts
 notes:
 - type: text
-  contents: Your application is now running on distributed infrastructure and your
-    goal is to monitor your infrastructure so you could identify any degradation in
-    your system and mitigate the situation before this degradation disrupts your services.
-    Instrument your hosts with New Relic infrastructure agent to gain insights into
-    your infrastructure.
+  contents: |-
+    Now that your application is running on multiple hosts, you need to monitor those hosts.
+    With infrastructure monitoring, you can identify issues on your system and mitigate the situation before you have an outage.
 tabs:
 - title: host 1
   type: terminal
@@ -22,49 +20,56 @@ difficulty: basic
 timelimit: 1800
 ---
 
+With infrastructure monitoring, you can observe your entire system. You can monitor the health and performance of all your hosts and identify issues that arise within them. With this information, you can take actions to mitigate the issues.
 
-With your app now running on distributed infrastructure, your goal is to monitor your infrastructure to identify and mitigate any issues, as needed. To achieve your goal, instrument your hosts with New Relic infrastructure agent to gain insights into your infrastructure.
+To gain these valuable insights, instrument your hosts with our infrastructure agent.
 
-## Install New Relic infrastructure agent
+## Install our infrastructure agent
 
-With New Relic infrastructure, you get complete observability of your system. You can monitor the health and performance of all your hosts and identify any degradation in your system. This allow you to take in-time action and mitigate issues with your infrastructure before they affect your users.
+Open a new tab in your browser and go to [New Relic](https://one.newrelic.com).
 
-To observe your infrastructure in New Relic, you first need to install New Relic infrastructure agent on your hosts. The easiet way is to use guided install.
+In the top-right, click on **Add more data**.
 
-Open a new tab in your browser and go to [New Relic One](https://one.newrelic.com). In the top-right, click on **Add more data**.
 ![Add more data](../assets/add-more-data.png)
 
 Scroll down to **Host Operating Systems** and choose **Ubuntu**.
+
 ![infrastructure agent for ubuntu operating system](../assets/infra-ubuntu.png)
 
+The hosts that serve your application are running the Ubuntu operating system.
+
 On the next page, click **Begin Installation**.
+
 ![begin installing infrastructure agent for ubuntu](../assets/begin-install.png)
 
-Here, you see the installation instruction.
+Copy the command and run it on **host 1** to install the infrastructure agent.
 
 ![install infrastructure agent for ubuntu](../assets/copy-command.png)
 
-Copy it to the terminal window of **host 1** to begin installaing the infrastructure agent.
+The guided install discovers and recommends integrations appropriate for your system. For now, only select **Logs integration** and **Golden Signal Alerts** instrumentation.
 
-The guided install discovers and recommends integrations appropriate for your system. However, we're only sticking to _Logs integration_ and _Golden Signal Alerts_ instrumentation.
 ![Logs and Golden signal instrumentation for ubuntu](../assets/installation.png)
 
-The installation will take a few minutes to complete. Meanwhile, move to **host 2** and install the infrastructure agent.
+> To deselect an integration, arrow down and press SPACE
 
-- Note: New Relic infrastructure agent can be installed on several hosts simultaneously. Instead of going through the whole process again, you execute the same command on **host 2** to install the infrastructure agent.
+Because you are installing **Golden Signal Alerts**, approve your email to be notified if and when these alerts trigger.
 
+The installation takes a few minutes to complete. While it does, do the same for **host 2**.
 
-Once the installation finishes, you see your hosts in New Relic.
+> **Note:** You can install our infrastructure agent on multiple hosts, simultaneously. Just paste the same command you did for **host 1** onto **host 2**.
 
 ## View your infrastructure
 
-Once you install the New Relic infrastructure agent on your hosts, you see them in New Relic.
+Once you install our infrastructure agent on your hosts, you see them in New Relic.
 
-In [New Relic One](https://one.newrelic.com), go to **Hosts** in left hand menu.
+In [New Relic](https://one.newrelic.com), go to **Hosts** in left-hand menu.
+
 ![View your hosts](../assets/view-infra.png)
-Here, you see a list of all your hosts. This view also shows you important statistics like **CPU usage**, **Memory usage**, **Storage usage**, about your hosts so you have a quick glance of your infrastructure.
 
-- Note: The above screenshot shows the new **Host** view. If you're using the old view, toggle the **Show new view** button in top right corner to switch to new **Host** view before proceeding.
-![View your hosts in new host view](../assets/new-host-view.png)
+> **Note:** This screenshot shows the new **Host** view. If you're using the old view, toggle the **Show new view** button in top right corner to switch to the new **Host** view before proceeding.
+>
+> ![View your hosts in new host view](../assets/new-host-view.png)
 
-With New Relic infrastructure agent now installed on your hosts, you observe and monitor the system for any degradation when occurs.
+Here, you see a list of all your hosts. This view also shows you important statistics about your hosts, like **CPU usage**, **Memory usage**, and **Storage usage**.
+
+With our infrastructure agent installed on your hosts, it's time to observe your system.

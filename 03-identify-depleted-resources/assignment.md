@@ -3,13 +3,13 @@ slug: identify-depleted-resources
 id: nbatvtp0qxoa
 type: challenge
 title: Identify depleted resources in your infrastructure
-teaser: Use New Relic infrastructure agent to identify depleted resources in your
-  infrastructure
+teaser: Use our infrastructure agent to identify depleted resources in your infrastructure
 notes:
 - type: text
-  contents: Your hosts are now instrumented with New Relic infrastructure agent. At
-    2AM, you get paged that one of your critical alerts is firing. It's time to use
-    New Relic infrastructure agent to identify your depleted resources.
+  contents: With your hosts instrumented with our infrastructure agent, you're ready
+    to observe the health of your system. Unfortunately, you've also just been made
+    aware that one of your hosts is in bad shape. It's time to use infrastructure
+    monitoring to find out what's going on.
 tabs:
 - title: host 1
   type: terminal
@@ -20,47 +20,48 @@ tabs:
 difficulty: basic
 timelimit: 1800
 ---
-You've instrumented your hosts with New Relic infrastructure agent to monitor their performance. At 2AM, you get paged that one of your critical alerts is firing. Being tired, you want to identify the depleted resources as soon as possible and isolate the system responsibele for the issue. This allows you to reduce your search perimeter when mitigating the situation. You also want to confirm the blast radius to prioritize if the situation should be mitigated urgently.
 
-- Note: Since we're sending mock traffic to the site using loader service, it takes sometime for service to spin up and start sending traffic. Moreover, the Golden Signals' High CPU has a 5 minute time before it fires the alert. If you don't see your host alerting just yet, sit back and allow it sometime.
+With infrastructure monitoring, you can quickly identify issues in your system as well as the entities that are affected by those issues.
+
+> **Note:** Since we're sending mock traffic to the site using loader service, it takes some time for the service to spin up and start sending traffic. Moreover, the Golden Signals' High CPU has a 5 minute time interval before it fires the alert. If you don't see your host alerting just yet, sit back and allow it some time.
 
 ## Identify depleted resources
 
-Go to [New Relic One](https://one.newrelic.com) and select **Hosts** from left hand menu.
-Here, you see a list of your hosts. You notice that host-1 is marked red and it also shows a high CPU usage.
+Go to [New Relic](https://one.newrelic.com) and select **Hosts** from left-hand menu.
+
+Here, you see a list of your hosts.
 
 ![View your hosts](../assets/high-cpu-host.png)
 
-This indicate that something is wrong with host-1. But you need to further investigate the problem and confirm if high CPU usage is the problem.
+Notice that **host-1** is marked red, and its CPU usage is high. This indicates that something may be wrong with **host-1**. Take a closer look to see if this high utilization is temporary or a long-lasting issue.
 
 Select **host-1** and click **View selected**.
 
 ![View your hosts](../assets/view-host-1.png)
 
-Next page shows you a detail view of host-1 with **CPU usage**, **Memory usage**, **Storage usage** as well as **related entities**.
-
-- Note: New Relic infrastructure agent automatically discovers the related entities and maps their relationship. If you don't see any **related entities**, allow infrastructure agent some time to discover them.
-
-Observe the **CPU usage** graph.
+This view shows you details about your host, including the same usage statistics you saw in the previous view. But now, you also see a timeseries graph that proves your host has been running your CPU dry for a while!
 
 ![View high CPU](../assets/cpu-usage-graph.png)
 
-This graph indicate that your CPU usage is almost reaching 100% for past sometime. This confirms that indeed high CPU utilization issue is occuring.
+Now that you know this is an actual problem, you need to determine what entities are affected by this issue.
 
-## Determine the blast radius
+## Determine the impact radius
 
-Now that you've confirmed that a part of your infrastructure is depleted, the next step is to determine the blast radius so you could prioritize mitigating the issue.
+Now that you've confirmed that high CPU usage is an issue on your host, you need to determine how many related entities are affected. This helps you prioritize mitigating the issue.
 
-To determine the blast radius, you need to know what entities are connected to this part of the infrastructure. This is important since it can help you troubleshoot quickly. You can use the automap to display the connected entities for this host.
+On the host's detail page, you see the host's related entities.
 
-On the host detail page, select **Switch to map view**.
+![Related entities](../assets/related-entities.png)
+
+Our infrastructure agent automatically discovers the related entities and maps their relationships. If you don't see any related entities, allow the agent a few more minutes to discover them.
+Once you see the services under related entities, switch to map view.
 
 ![Switch to map view](../assets/switch-to-map-view.png)
 
-This opens up automap and display all the connected entities to this host.
+This shows all the services running on this host.
 
 ![View automap for host](../assets/automap.png)
 
-You see that this host is hosting your user, shipping, cart and catalogue service of which 2 are already firing critical alerts. These services are cruicial for your site and you suspect that thousands of your users will be impacted due to this degradation.
+The shipping and catalogue services are in critical condition; that's what the red color indicates. These services are crucial for your site operations, so most of your customers will be impacted by these service issues.
 
-Now that you have isolated the depleted resources and the blast radius seems huge, it is important to discover the root cause of the issue so you could quickly mitigate the situation and ensure a smooth experience for your customers.
+Now that you understand the CPU utilization issue and its impact radius, you need to discover the root cause of the issue so you can quickly mitigate the situation and ensure a smooth experience for your customers.

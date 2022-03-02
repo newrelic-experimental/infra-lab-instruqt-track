@@ -3,13 +3,13 @@ slug: set-up-lab-environment
 id: ml6mlby9riet
 type: challenge
 title: Spin up Geek's Movie Shop
-teaser: Set up your lab environment by spinning up Geek's Movie Shop on multiple hosts
+teaser: Set up your lab environment
 notes:
 - type: text
-  contents: As an IT engineer for Geek's Movie Shop, it is your responsibility to
-    make sure that all the Geek's Movie Shop services are running smoothly. To ensure
-    that, it is crucial for you to be in light with how your infrastructure is behaving
-    so you can identify and mitigate issues as needed.
+  contents: As an IT engineer for Geek's Movie Shop, it's your responsibility to ensure
+    that all your services are running smoothly. This means you need to observe your
+    infrastructure to see how it's behaving and to identify and mitigate issues as
+    they come up.
 tabs:
 - title: host 1
   type: terminal
@@ -24,40 +24,33 @@ difficulty: basic
 timelimit: 1800
 ---
 
-Geek's Movie Shop is a web application that consists of several interconnected microservices:
-- user
-- login
-- cart
-- catalogue
-- payment
-- ratings
-- shipping
-These services are instrumented with New Relic to monitor their performance and are deployed across a distributed infrastructure. Your goal is to observe the infrastructure to make sure all the related services are running smoothly.
-
-Before you begin using New Relic infrastructure to observe and monitor your infrastructure, you need to spin up these services.
+Geek's Movie Shop is a web application that consists of several, interconnected microservices. Before you begin to observe and monitor the infrastructure that supports these services, you need to set up your lab environment.
 
 ## Set up your environment
 
-You application consists of multiple services, all of which are instrumented with New Relic. These services are spun over multiple hosts and use your liscense key to write telemetry data to New Relic. Before you spin up your application, you need to set your `NEW_RELIC_LICENSE_KEY` environment variable on all the hosts.
+Geek's Movie Shop is a distributed application. It's composed of services hosted on multiple servers. Here, we provide you some quick setup commands so that you can spin up your lab environment. First, you configure your New Relic license key on each host, so that your instrumented applications know where to send telemetry data. Then, you use `docker-compose` to spin up pre-instrumented services that use your license key.
 
-Export your `NEW_RELIC_LICENSE_KEY` environment variable on **host 1**.
+First, copy your [license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-license-key). You use this multiple times throughout this challenge.
 
-```bash
-export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>
-```
-Replace <YOUR_LICENSE_KEY> with your real [license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-license-key).
-
-Next, move over to tab **host 2** and export your `NEW_RELIC_LICENSE_KEY` environment variable.
+In the **host 1** tab, configure a new environment variable, called `NEW_RELIC_LICENSE_KEY`.
 
 ```bash
 export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>
 ```
 
-Now you're ready to run your application.
+> Replace <YOUR_LICENSE_KEY> with your real [license key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#ingest-license-key).
+
+In the **host 2** tab, do the same.
+
+```bash
+export NEW_RELIC_LICENSE_KEY=<YOUR_LICENSE_KEY>
+```
+
+Now, you're ready to run your application.
 
 ## Spin up your application
 
-On **host 1**, navigate to the root directory of application, build and run your services.
+In the **host 1** tab, build and run the Geek's Movie Shop services.
 
 ```bash
 cd /home/packer/infra-lab-material/host-1
@@ -65,7 +58,7 @@ docker-compose build -q
 docker-compose up -d
 ```
 
-The services take sometime to build. Meanwhile, move to **host 2** tab and run your services.
+Expect this command to run for several minutes. While it does, do the same for **host 2**.
 
 ```bash
 cd /home/packer/infra-lab-material/host-2
@@ -73,7 +66,7 @@ docker-compose build -q
 docker-compose up -d
 ```
 
-Once your services are running, you see the similar output.
+Once the services are running, the docker output shows that the containers were successfully created.
 
 ```bash
 Creating network "host-1_geek-shop" with the default driver
@@ -99,9 +92,11 @@ Creating host-1_shipping_1  ... done
 Creating host-1_web_1       ... done
 ```
 
-Besides these services, you also need to spin up a loader service that send mock traffic to your site.
+## Spin up your load generator
 
-Move to **host 3** tab, build and run your loader service.
+With your services running, spin up a load generator that sends traffic to your site.
+
+In the **host 3** tab, build and run your load generator.
 
 ```bash
 cd /home/packer/infra-lab-material/host-3
@@ -109,4 +104,12 @@ docker-compose build -q
 docker-compose up -d
 ```
 
-With your application and loader service now running, you're ready to start instrument your infrastructure.
+Docker output shows that the loader service is successfully created.
+
+```bash
+Creating network "host-3_default" with the default driver
+Creating host-3_loader-2_1 ... done
+Creating host-3_loader-1_1 ... done
+```
+
+Now that your application and load generator are running, you're ready to instrument your infrastructure.
