@@ -23,8 +23,6 @@ timelimit: 1800
 
 With infrastructure monitoring, you can quickly identify issues in your system as well as the entities that are affected by those issues.
 
-> **Note:** If you don't see data for your hosts quite yet, wait a few more minutes, and refresh your view.
-
 ## Identify depleted resources
 
 Go to [New Relic](https://one.newrelic.com) and select **Hosts** from the left-hand menu.
@@ -34,6 +32,8 @@ Here, you see a list of your hosts.
 ![View your hosts](../assets/high-cpu-host.png)
 
 Notice that **host-1** is marked red, and its CPU usage is high. This indicates that something may be wrong with **host-1**. Take a closer look to see if this high utilization is temporary or a long-lasting issue.
+
+> **Note:** If **host-1** isn't marked red yet, wait a few more minutes, and refresh your view.
 
 Select **host-1**, and click **View selected**.
 
