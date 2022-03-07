@@ -25,17 +25,23 @@ With infrastructure monitoring, you can quickly identify issues in your system a
 
 ## Identify depleted resources
 
-Go to [New Relic](https://one.newrelic.com) and select **Hosts** from the left-hand menu.
+Go to [New Relic](https://one.newrelic.com) and select **Hosts** from left-hand menu.
 
 Here, you see a list of your hosts.
 
 ![View your hosts](../assets/high-cpu-host.png)
 
-Notice that **host-1** is marked red, and its CPU usage is high. This indicates that something may be wrong with **host-1**. Take a closer look to see if this high utilization is temporary or a long-lasting issue.
+Notice that **host-1** is marked red which tells you that a critical violation is in progress. Click **host-1** to take a closer look.
 
 > **Note:** If **host-1** isn't marked red yet, wait a few more minutes, and refresh your view.
 
-Select **host-1**, and click **View selected**.
+In the right hand panel, you see **Open violations**.
+
+![Open violations](../assets/open-violations.png)
+
+You see that your host was firing Golden Signal 'High CPU' alert. You need to understand if this high utilization is temporary or a long-lasting issue.
+
+From **Hosts** view, select **host-1** and click **View selected**.
 
 ![View your hosts](../assets/view-host-1.png)
 

@@ -46,13 +46,20 @@ Copy the command and run it on **host 1** to install the infrastructure agent.
 
 ![install infrastructure agent for ubuntu](../assets/copy-command.png)
 
-The guided install discovers and recommends integrations appropriate for your system. For now, only select **Logs integration** and **Golden Signal Alerts** instrumentation.
+The guided install discovers and recommends integrations appropriate for your system. For now, only select **Golden Signal Alerts** instrumentation.
 
-![Logs and Golden signal instrumentation for ubuntu](../assets/installation.png)
+![Golden signal instrumentation for ubuntu](../assets/install-golden-signal.png)
 
 > To deselect an integration, arrow down and press SPACE
 
-Because you are installing **Golden Signal Alerts**, approve your email to be notified if and when these alerts trigger.
+Golden Signal Alerts will setup alerts for any existing, and futute, entities reporting to newrelic with Golden Signal conditions:
+
+  - High CPU
+  - High Application Error Rate
+  - High Application Response Time
+  - Low Application Throughput
+
+In real-world scenarios, you approve your email to be notified if and when these alerts trigger. Since this is a lab, you choose otherwise.
 
 The installation takes a few minutes to complete. While it does, do the same for **host 2**.
 
